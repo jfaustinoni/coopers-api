@@ -9,6 +9,7 @@ const emailRoutes = require('./routes/emailRoutes')
 
 const app = express()
 
+const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors());
 
@@ -21,7 +22,7 @@ mongoose.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster-coopers.gzdwyhv.mongodb.net/`
 )
 .then(() => { 
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
         console.log('Servidor rodando na porta 3000')
     })
 })
